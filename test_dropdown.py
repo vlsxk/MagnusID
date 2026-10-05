@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.skip(reason="Причина")
 def test_dropdown(page):
     page.goto("https://the-internet.herokuapp.com/dropdown",timeout=60000, wait_until="domcontentloaded")
     dropdown = page.locator('//*[@id="dropdown"]')

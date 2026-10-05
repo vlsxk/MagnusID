@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.checkboxes
 def test_checkboxes(page):
     page.goto("https://the-internet.herokuapp.com/checkboxes",timeout=60000, wait_until="domcontentloaded")
     checkbox1 = page.locator('//*[@id="checkboxes"]/input[1]')
