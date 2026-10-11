@@ -1,10 +1,20 @@
 import pytest
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Page
+
+from pages.authentication.authentication_page import AuthenticationPage
+from pages.profile.profile_page import ProfilePage
 
 @pytest.fixture
-def page():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)  # headless=True для CI
-        page = browser.new_page()
-        yield page          # тест выполняется здесь
-        browser.close()     # гарантированно закрывается после теста
+def user_data() -> dict[str, str]:
+    return {
+        "username": "testuser",
+        "password": "password"
+    }
+
+@pytest.fixture
+def authentication_page(page: Page) -> AuthenticationPage:
+    return AuthenticationPage(page)
+
+@pytest.fixture
+def profile_page(page: Page) -> ProfilePage:
+    return ProfilePage(page)
