@@ -3,10 +3,10 @@ name: UI tests  # Название workflow, отображается в инт�
 on:
   push:
     branches:
-      - main  # Запускаем workflow при пуше в ветку main
+      - master  # Запускаем workflow при пуше в ветку main
   pull_request:
     branches:
-      - main  # И при открытии pull request'а в main
+      - master # И при открытии pull request'а в main
 
 jobs:
   run-tests:  # Джоб для запуска тестов
