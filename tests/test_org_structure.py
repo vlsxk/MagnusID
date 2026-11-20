@@ -1,5 +1,4 @@
 import pytest
-from pages.authentication_page import AuthenticationPage
 from pages.org_structure_page import OrgStructurePage
 import tools.fakers as fakers
 
