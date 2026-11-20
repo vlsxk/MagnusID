@@ -16,8 +16,6 @@ class TestCreateOrganization:
 
         org_structure_page.tree_component.check_name_visible_on_page(created_organization_name["name"])
 
-
-
     # @pytest.mark.regression
     # def test_edit_organization(self, org_structure_page: OrgStructurePage,
     #                            created_organization_name: str):
