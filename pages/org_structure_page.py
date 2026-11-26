@@ -39,3 +39,13 @@ class OrgStructurePage(BasePage):
 
         self.archive_modal=OrgStructureArchiveFormComponent(page)
         self.entity_type_organization="Organization"
+
+    def open_organization_modal(self, created_organization_name: dict):
+        self.tree_component.check_name_visible_on_page(created_organization_name["name"])
+        self.tree_component.click_tree_element(created_organization_name["name"])
+
+    def edit_organization_modal(self, org_name: str, org_code: str, org_description: str):
+        self.modal_component.click_edit_button()
+        edited_organization_name = self.modal_component.fill_organization_modal(org_name, org_code, org_description)
+        self.modal_component.click_save_button()
+        return edited_organization_name

@@ -1,9 +1,7 @@
 import pytest
 from pages.org_structure_page import OrgStructurePage
 import tools.fakers as fakers
-
 import allure
-
 from tools.routes import AppRoute
 
 
@@ -41,18 +39,13 @@ class TestCreateOrganization:
                                org_description: str):
         org_structure_page.visit(AppRoute.ORG_STRUCTURE)
 
-        org_structure_page.tree_component.check_name_visible_on_page(created_organization_name["name"])
-        org_structure_page.tree_component.click_tree_element(created_organization_name["name"])
+        org_structure_page.open_organization_modal(created_organization_name)
 
-        org_structure_page.modal_component.click_edit_button()
-        edited_organization_name = org_structure_page.modal_component.fill_organization_modal(org_name,org_code,org_description)
+        created_organization_name["name"]=org_structure_page.edit_organization_modal(org_name,org_code,org_description)
 
-        org_structure_page.modal_component.click_save_button()
-        created_organization_name["name"] = edited_organization_name
-        # org_structure_page.reload()
         org_structure_page.visit(AppRoute.ORG_STRUCTURE)
 
-        org_structure_page.tree_component.check_name_visible_on_page(edited_organization_name)
+        org_structure_page.tree_component.check_name_visible_on_page(created_organization_name["name"])
 
 
 
