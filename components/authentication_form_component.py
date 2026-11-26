@@ -38,13 +38,11 @@ class AuthenticationFormComponent(BaseComponent):
         self.password_input.fill(password)
 
     @allure.step("Check that login form is visible")
-    def check_visible(self, username: str | None = None, password: str | None = None) -> None:
+    def check_visible(self) -> None:
         """
         Проверяет, что форма логина отображается.
         Если переданы username/password — дополнительно проверяет значения в полях.
-
-        :param username: Ожидаемое значение поля username (опционально).
-        :param password: Ожидаемое значение поля password (опционально).
+.
         """
         self.username_input.check_visible()
         self.password_input.check_visible()

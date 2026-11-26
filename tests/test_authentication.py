@@ -8,22 +8,6 @@ import allure
 import pytest
 from tools.routes import AppRoute
 
-# def test_successful_authentication(user_data: dict[str, str],
-#                                    authentication_page: AuthenticationPage,
-#                                    profile_page: ProfilePage
-#                                    ) -> None:
-#     authentication_page.open_page()
-#     authentication_page.check_visible_registration_form()
-#     authentication_page.fill_registration_form(
-#         username=user_data["username"],
-#         password=user_data["password"]
-#     )
-#     authentication_page.click_registration_button()
-#     profile_page.check_opened()
-#     profile_page.check_visible_profile_title()
-#
-#     input("Press enter to continue...")
-
 class TestAuthentication:
     @allure.title("Successful authentication")
     def test_successful_authentication(self,

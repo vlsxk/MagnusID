@@ -7,37 +7,20 @@ logger = get_logger("BASE_ELEMENT")
 
 
 class BaseElement:
-    """
-    Базовый элемент страницы.
 
-    Предоставляет общие методы взаимодействия с любым UI-элементом,
-    включая клик, проверку видимости, проверку текста и получение локатора.
-    """
     def __init__(self, page: Page, locator: str, name: str) -> None:
-        """
-        :param page: Экземпляр страницы Playwright
-        :param locator: Значение data-testid для поиска элемента (может содержать плейсхолдеры)
-        :param name: Название элемента (для логирования и аллюра)
-        """
+
         self.page = page
         self.name = name
         self.locator = locator
 
     @property
     def type_of(self) -> str:
-        """
-        Возвращает тип элемента. Переопределяется в потомках.
-        """
+
         return "base element"
 
     def get_locator(self, nth: int = 0, **kwargs) -> Locator:
-        """
-        Формирует локатор элемента по data-testid с возможностью подстановки аргументов.
 
-        :param nth: Индекс элемента, если на странице несколько одинаковых
-        :param kwargs: Аргументы для форматирования локатора
-        :return: Локатор элемента
-        """
         is_selector = self.locator.startswith((".", "#", "//", "["))
 
         if is_selector:

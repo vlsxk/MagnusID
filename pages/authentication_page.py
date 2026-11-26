@@ -1,13 +1,9 @@
-import time
 import re
-from playwright.sync_api import Page, expect
-from tools.routes import AppRoute
-from config import Settings
+from playwright.sync_api import Page
 from elements.button import Button
-from elements.link import Link
 from pages.base_page import BasePage
 from components.authentication_form_component import AuthenticationFormComponent
-from pages.profile_page import ProfilePage
+from elements.link import Link
 
 class AuthenticationPage(BasePage):
 

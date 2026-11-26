@@ -14,11 +14,6 @@ class BaseComponent:
     Содержит общие методы и интерфейс для всех дочерних компонентов.
     """
     def __init__(self, page: Page):
-        """
-        Конструктор базового компонента.
-
-        :param page: Экземпляр страницы Playwright.
-        """
         self.page = page
 
 

@@ -2,14 +2,9 @@ import allure
 from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
-from elements.text import Text
 from elements.button import Button
-from elements.input import Input
-from elements.dropdown import DropDown
-from elements.checkbox import Checkbox
 from elements.window import Window
 
-from tools import fakers
 
 
 class OrgStructureArchiveFormComponent(BaseComponent):

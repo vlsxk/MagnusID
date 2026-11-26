@@ -6,29 +6,14 @@ from elements.text import Text
 
 
 class ProfileViewComponent(BaseComponent):
-    """
-    Компонент панели инструментов на дашборде.
-    Используется для проверки отображения заголовка 'Dashboard'.
-    """
 
     def __init__(self, page: Page):
-        """
-        Инициализация компонента панели инструментов.
-
-        :param page: Экземпляр страницы Playwright
-        """
         super().__init__(page)
 
-        # Элемент, отображающий заголовок панели инструментов
         self.title = Text(page, '.profile__header.text-h3', 'Профиль')
 
     @allure.step("Check visible profile toolbar view")
     def check_visible(self):
-        """
-        Проверяет, что панель инструментов отображается корректно:
-        - Заголовок панели виден
-        - Заголовок содержит текст 'Dashboard'
-        """
         # Проверка, что заголовок виден на экране
         self.title.check_visible()
         # Проверка, что заголовок содержит правильный текст

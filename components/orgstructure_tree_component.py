@@ -1,10 +1,7 @@
 import allure
 from playwright.sync_api import Page, expect
-
 from components.base_component import BaseComponent
-from elements.text import Text
 from elements.button import Button
-
 class OrgStructureTreeComponent(BaseComponent):
     """
 Компонент заголовка, содержит дерево
